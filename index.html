@@ -1,0 +1,82 @@
+<html>
+	<head>
+		<title>Path Tracer</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<center>
+			<br />
+			<canvas id="canvas" width=600 height=600 style="border: 1px grey solid"></canvas><br /><br />
+			<div id="drawButton">
+				<button onclick="draw()">Draw</button><br /><br />
+			</div>
+			<div id="animationControls">
+				<table style="text-align:center;">
+					<thead>
+						<tr>
+							<th>Animation Controls</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>WASD - Move</td>
+						</tr>
+						<tr>
+							<td>EQ - Elevation</td>
+						</tr>
+						<tr>
+							<td>Arrow keys - Rotate</td>
+						</tr>
+					</tbody>
+				</table>
+				</br >
+			</div>
+			This page automatically reloads as I develop. Enjoy.
+			<br />
+			Currently: applying lighting effects.
+			<br />
+			To come: lens aperture focus effect + soft shadows
+			<br /><br />
+			Rays shot: <span id="raysShotConsole"></span>
+			<div class="animationInputContainer">
+				<label for="animationCheck">Move</label>
+				<input type="checkbox" id="animationCheck" oninput="updateAnimation(this)">
+			</div>
+			<div class="slidercontainer" id="threadCountcontainer">
+				<label for="threadCountSlider">Threads</label>
+				<input type="range" min="0" max="30" value="3" step=1 id="threadCountSlider" oninput="updatethreadValue(this.value)" onchange="updatethreadCount(this.value)" />
+				<span id="threadCountConsole"></span>
+			</div>
+			<div class="slidercontainer" id="samplingcontainer">
+				<label for="samplingSlider">Sampling</label>
+				<input type="range" min="0" max="30" value="7" step=1 id="samplingSlider" oninput="updateSampling(this.value)" />
+				<span id="samplingConsole"></span>
+			</div>
+			<div class="slidercontainer" id="lightLosscontainer">
+				<label for="lightLossSlider">Light Loss</label>
+				<input type="range" min="0" max="1" value="0.2" step=0.05 id="lightLossSlider" oninput="updateLightLoss(this.value)" />
+				<span id="lightLossConsole"></span>
+			</div>
+			<div class="slidercontainer" id="recursioncontainer">
+				<label for="recursionSlider">Recursion Depth</label>
+				<input type="range" min="0" max="32" value="8" step=1 id="recursionSlider" oninput="updateRecursion(this.value)" />
+				<span id="recursionConsole"></span>
+			</div>
+			</div>
+		</center>
+
+		<script src="Vec3.js"></script>
+		<script src="Color.js"></script>
+		<script src="util.js"></script>
+		<script src="Renderer.js"></script>
+
+		<script src="Light.js"></script>
+		<script src="Material.js"></script>
+		<script src="Sphere.js"></script>
+		<script src="Triangle.js"></script>
+		<script src="Ray.js"></script>
+
+		<script src="main.js"></script>
+		<script src="inputHandle.js"></script>
+	</body>
+</html>
