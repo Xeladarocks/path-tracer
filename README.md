@@ -4,7 +4,7 @@ A "simple" path-tracer made in JS.
 ## Preview
 A preview can be found at: http://founders.gg/path-tracer/
 
-**This project is no longer maintained**
+**Due to rendering limitations, this project is no longer maintained**
 Progress has transferred to https://github.com/Xeladarocks/pathtracer/
 
 ![alt text](https://github.com/Xeladarocks/path-tracer/blob/master/imgs/400p2500s%20(2).png?raw=true "Sample")
