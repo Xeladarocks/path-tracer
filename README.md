@@ -2,7 +2,7 @@
 A "simple" path-tracer made in JS.
 
 ## Preview
-A preview can be found at: http://founders.gg/path-tracer/
+A preview can be found at: https://xeladarocks.github.io/path-tracer
 
 ------
 **Due to rendering limitations, this project is no longer maintained**
