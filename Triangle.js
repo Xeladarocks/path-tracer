@@ -1,6 +1,7 @@
 // Triangle A simple triangle
 class Triangle {
     constructor(color, material, texture, v1, v2, v3) {
+        this.__type__ = Triangle.name;
         this.color = color;
         this.material = material;
         this.texture = texture;
@@ -75,3 +76,4 @@ class Triangle {
     }
 
 }
+Triangle.__type__ = Triangle.name;
