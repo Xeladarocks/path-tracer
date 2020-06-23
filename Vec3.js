@@ -1,7 +1,6 @@
 class Vec3 {
-    static __type__ = this.name;
     constructor(x, y, z) {
-        this.__type__ = Vec3.__type__;
+        this.__type__ = Vec3.name;
         this.x = x != null ? x : 0;
         this.y = y != null ? y : 0;
         this.z = z != null ? z : 0;
@@ -166,3 +165,5 @@ Vec3.prototype.hash = function() {
 };
 Vec3.Zero = new Vec3(0, 0, 0);
 Vec3.Up = new Vec3(0, 1, 0);
+
+Vec3.__type__ = Vec3.name;
