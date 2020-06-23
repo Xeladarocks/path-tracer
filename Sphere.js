@@ -1,9 +1,7 @@
 // A Sphere.
 class Sphere {
-    static __type__ = this.name;
-
     constructor(position, radius, material, color, texture) {
-        this.__type__ = Sphere.__type__;
+        this.__type__ = Sphere.name;
         this.position = position;
         this.radius = radius;
         this.material = material;
@@ -41,3 +39,4 @@ class Sphere {
         return this.color;
     }
 }
+Sphere.__type__ = Sphere.name;
