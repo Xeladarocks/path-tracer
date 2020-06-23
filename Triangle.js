@@ -12,67 +12,37 @@ class Triangle {
 
     // RayIntersects Checks if the ray intersects with the triangle.
     RayIntersects(ray) { // returns boolean
-        let edge1 = this.vertex2.Subtract(this.vertex1)
-        let edge2 = this.vertex3.Subtract(this.vertex1)
-
-        let h = ray.direction.Cross(edge2)
-        let a = edge1.DotProduct(h)
-
-        if a > -epsilon && a < epsilon {
-            return false, Vector3{}
+        let edge1 = this.vertex2.sub(this.vertex1)
+        let edge2 = this.vertex3.sub(this.vertex1)
+        let h = ray.direction.cross(edge2)
+        let a = edge1.dot(h)
+        if (a > -0.00001 && a < 0.00001) {
+            return false
         }
-
-        f := 1.0 / a
-        s := ray.origin.Subtract(t.vertex1)
-        u := f * s.DotProduct(h)
-
-        if u < 0 || u > 1 {
-            return false, Vector3{}
+        let f = 1.0 / a
+        let s = ray.origin.sub(this.vertex1)
+        let u = f * s.dot(h)
+        if (u < 0 || u > 1) {
+            return false
         }
-
-        q := s.CrossProduct(edge1)
-        v := f * ray.direction.DotProduct(q)
-
-        if v < 0 || u+v > 1 {
-            return false, Vector3{}
+        let q = s.cross(edge1)
+        let v = f * ray.direction.dot(q)
+        if (v < 0 || u+v > 1) {
+            return false
         }
-
-        t0 := f * edge2.DotProduct(q)
-
-        if t0 > epsilon && t0 < 1/epsilon {
-            return true, ray.origin.Add(ray.direction.MultiplyVal(t0))
+        let t0 = f * edge2.dot(q)
+        if t0 > 0.00001 && t0 < 1/0.00001 {
+            return true
         }
-
-        return false, Vector3{}
+        return false
     }
 
     // CalculateNormal Checks if the ray intersects with the triangle.
-    func (t Triangle) CalculateNormal(collisionPoint Vector3) Vector3 {
-        edge1 := t.vertex2.Subtract(t.vertex1)
-        edge2 := t.vertex3.Subtract(t.vertex1)
-
-        cross := edge1.CrossProduct(edge2)
-
-        return cross.Normalize()
-    }
-
-    // GetColor Gets the color of the triangle
-    func (t Triangle) GetColor(intersect Vector3) Color {
-        if t.texture != nil {
-            return t.texture.GetColor(intersect)
-        }
-
-        return t.color
-    }
-
-    // GetMaterial Gets the material of the triangle
-    func (t Triangle) GetMaterial() Material {
-        return t.material
-    }
-
-    // GetTexture Gets the texture of the sphere
-    func (t Triangle) GetTexture() Texture {
-        return t.texture
+    function CalculateNormal(collisionPoint) {
+        let edge1 = this.vertex2.sub(this.vertex1)
+        let edge2 = this.vertex3.sub(this.vertex1)
+        let cross = edge1.CrossProduct(edge2)
+        return cross.normalize()
     }
 
 }
