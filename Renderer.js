@@ -1,7 +1,6 @@
 class Renderer {
-    static __type__ = this.name;
     constructor(width, height, samples) {
-        this.__type__ = Renderer.__type__;
+        this.__type__ = Renderer.name;
         this.width = width;
         this.height = height;
         this.samples = samples;
@@ -98,3 +97,4 @@ class Renderer {
         return Math.min(1, intensity);
     }
 }
+Renderer.__type__ = Renderer.name;
