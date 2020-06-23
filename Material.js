@@ -1,7 +1,6 @@
 class Material {
-    static __type__ = this.name;
     constructor(reflectivity, diffuse, specular, emissive, opacity) {
-        this.__type__ = Material.__type__;
+        this.__type__ = Material.name;
         this.reflectivity = reflectivity;
         this.diffuse = diffuse;
         this.specular = specular;
@@ -9,3 +8,4 @@ class Material {
         this.opacity = opacity;
     }
 }
+Material.__type__ = Material.name;
