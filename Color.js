@@ -1,7 +1,6 @@
 class Color {
-    static __type__ = this.name;
     constructor(r, g, b) {
-        this.__type__ = Color.__type__;
+        this.__type__ = Color.name;
         this.r = r;
         this.g = g;
         this.b = b;
@@ -61,3 +60,4 @@ class Color {
         )
     }
 }
+Color.__type__ = Color.name;
